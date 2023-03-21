@@ -8,12 +8,13 @@ interface Props {
 }
 
 const DragAndDrop = ({ setTextTransformed, textTransformed }: Props) => {
-  const { getInputProps, getRootProps, acceptedFiles, isDragAccept } = useDropzone({
-    maxFiles: 1,
-    accept: {
-      "image/*": [".jpeg", ".png"],
-    },
-  })
+  const { getInputProps, getRootProps, acceptedFiles, isDragAccept, isDragReject } =
+    useDropzone({
+      maxFiles: 1,
+      accept: {
+        "image/*": [".jpeg", ".png"],
+      },
+    })
 
   const preview = acceptedFiles.length > 0 ? URL.createObjectURL(acceptedFiles[0]) : null
 
@@ -26,14 +27,12 @@ const DragAndDrop = ({ setTextTransformed, textTransformed }: Props) => {
     }
   }, [acceptedFiles])
 
-  console.log(acceptedFiles)
-
   return (
     <div
       {...getRootProps({})}
       className={`rounded-md mx-4 border-dashed border-purple-200 border-2 flex justify-center items-center transition-all min-h-sm  ${
         isDragAccept && "bg-purple-200"
-      }`}
+      } ${isDragReject && "bg-red-600 "}`}
     >
       <input {...getInputProps()} />
       {preview ? (
