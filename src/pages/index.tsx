@@ -1,3 +1,11 @@
+import Chat from "@/components/chat"
+import DragAndDrop from "@/components/dragAndDrop"
+
 export default function Home() {
-  return <div className="text-red-100">home</div>
+  return (
+    <main className="">
+      <DragAndDrop />
+      <Chat />
+    </main>
+  )
 }
