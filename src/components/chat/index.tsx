@@ -5,13 +5,7 @@ interface Props {
 }
 
 const Chat = ({ inputText }: Props) => {
-  console.log(inputText)
-  return (
-    <div>
-      chat
-      {inputText}
-    </div>
-  )
+  return <div className="m-4">{inputText}</div>
 }
 
 export default Chat

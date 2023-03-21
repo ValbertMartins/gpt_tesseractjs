@@ -15,23 +15,41 @@ const DragAndDrop = ({ setTextTransformed, textTransformed }: Props) => {
     },
   })
 
-  const preview = acceptedFiles.length > 0 ? acceptedFiles[0] : null
+  const preview = acceptedFiles.length > 0 ? URL.createObjectURL(acceptedFiles[0]) : null
 
   useEffect(() => {
     if (acceptedFiles.length > 0) {
       const image = acceptedFiles[0]
       getTransformedText(image, "por").then(text => setTextTransformed(text))
+    } else {
+      setTextTransformed("")
     }
   }, [acceptedFiles])
 
-  console.log(isDragAccept)
+  console.log(acceptedFiles)
+
   return (
     <div
       {...getRootProps({})}
-      className="rounded-md border-dashed border-purple-200 border-2 flex justify-center"
+      className={`rounded-md mx-4 border-dashed border-purple-200 border-2 flex justify-center items-center transition-all min-h-sm  ${
+        isDragAccept && "bg-purple-200"
+      }`}
     >
       <input {...getInputProps()} />
-      {preview ? <img src={URL.createObjectURL(preview)} /> : "drop files here"}
+      {preview ? (
+        <img
+          src={preview}
+          className="w-full"
+        />
+      ) : (
+        <p
+          className={`text-2xl font-semibold transition-all text-purple-300 ${
+            isDragAccept && "text-white"
+          }`}
+        >
+          Drag and drop or browse
+        </p>
+      )}
     </div>
   )
 }
