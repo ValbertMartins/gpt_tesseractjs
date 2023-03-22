@@ -30,7 +30,7 @@ const DragAndDrop = ({ setTextTransformed, textTransformed }: Props) => {
   return (
     <div
       {...getRootProps({})}
-      className={`rounded-md mx-4 border-dashed border-purple-200 border-2 flex justify-center items-center transition-all lg:min-h-sm  ${
+      className={`rounded-md mx-4 border-dashed border-sky-900 border-2 flex justify-center items-center transition-all lg:min-h-sm  ${
         isDragAccept && "bg-purple-200"
       } ${isDragReject && "bg-red-400 cursor-not-allowed "}`}
     >
@@ -42,7 +42,7 @@ const DragAndDrop = ({ setTextTransformed, textTransformed }: Props) => {
         />
       ) : (
         <p
-          className={`text-2xl font-semibold transition-all text-purple-300 m-4 ${
+          className={`text-2xl font-semibold transition-all text-sky-600 m-4 ${
             isDragAccept && "text-white"
           }`}
         >

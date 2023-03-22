@@ -19,7 +19,8 @@
     "react-dom": "18.2.0",
     "react-dropzone": "^14.2.3",
     "tesseract.js": "^4.0.2",
-    "typescript": "5.0.2"
+    "typescript": "5.0.2",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",
