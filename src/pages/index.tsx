@@ -1,7 +1,6 @@
 import Chat from "@/components/chat"
 import DragAndDrop from "@/components/dragdrop"
-import { useEffect, useState } from "react"
-import Typewriter from "typewriter-effect"
+import { useState } from "react"
 
 export default function Home() {
   const [textTransformed, setTextTransformed] = useState<string>("")
