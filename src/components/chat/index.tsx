@@ -34,7 +34,7 @@ const Chat = ({ inputText }: Props) => {
         <div className="flex items-start">
           <img
             src="./ChatGPT_logo.svg"
-            alt=""
+            alt="chat gpt logo"
             width={30}
           />
 

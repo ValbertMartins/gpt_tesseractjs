@@ -14,6 +14,6 @@ export default async function getResponseChatGPT(req: NextApiRequest, res: NextA
     if (error instanceof Error) {
       return res.status(400).json({ message: error.message })
     }
-    return res.status(400).json({ message: "unknow error" })
+    return res.status(400).json({ message: "unknown error" })
   }
 }
