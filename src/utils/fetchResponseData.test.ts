@@ -1,13 +1,6 @@
-import { server } from "@/mock/msw"
+import { server } from "@/mocks/server"
 import { rest } from "msw"
 import { fetchResponseData } from "./fetchResponseData"
-
-beforeAll(() => {
-  server.listen()
-})
-afterAll(() => {
-  server.close()
-})
 
 describe("fetch Response data function", () => {
   it("should return a object with a property message", async () => {

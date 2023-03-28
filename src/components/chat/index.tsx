@@ -27,31 +27,40 @@ const Chat = ({ inputText }: Props) => {
   }, [inputText])
 
   return (
-    <div className="mx-4 mt-10">
+    <div
+      className="mx-4 mt-10"
+      role="container"
+    >
       {loading ? (
         <Loading />
       ) : (
-        <div className="flex items-start">
-          <img
-            src="./ChatGPT_logo.svg"
-            alt="chat gpt logo"
-            width={30}
-          />
-
-          {error ? (
-            <div className="text-white mx-4">{error.message}</div>
-          ) : (
-            <div className="text-sky-500 mt-2 ml-5 font-normal">
-              <Typewriter
-                onInit={typewriter => {
-                  typewriter
-                    .changeDelay(50)
-                    .typeString(chatResponse ? chatResponse.message.content : "")
-                    .start()
-                }}
+        <div>
+          {chatResponse && (
+            <div className="flex items-start">
+              <img
+                src="./ChatGPT_logo.svg"
+                alt="chat gpt logo"
+                width={30}
               />
+
+              <div className="text-sky-500 mt-2 ml-5 font-normal">
+                <Typewriter
+                  onInit={typewriter => {
+                    typewriter.changeDelay(50).typeString(chatResponse.message.content).start()
+                  }}
+                />
+              </div>
             </div>
           )}
+        </div>
+      )}
+
+      {error && !loading && (
+        <div
+          className="text-xs text-red-600 text-center"
+          role={error.message}
+        >
+          {error.message}
         </div>
       )}
     </div>
